@@ -1,7 +1,7 @@
 html,
 body {
   width: 100%;
-  background-color: blue;
+  background-color: black;
 }
 table {
   width: 100%;
@@ -38,27 +38,6 @@ justify-content: center;
 input[type="radio"] {
   margin-right: 8px;
   
-}
-.gainedpoints{
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  color:rgb(105, 242, 105);
-  animation: fadeIn 2s;
-  font-size: 50px;
-  opacity: 0;
-  
-}
-.lostpoints{
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  animation: fadeIn 2s;
-  color:rgb(255, 79, 79);
-  font-size: 50px;
-  opacity: 0;
-  
-
-}@keyframes fadeIn {
-  0% { opacity: 1; transform: translate(0,  0px);}
-  100% { opacity: 0;transform: translate(0, 15px); }
-   
 }
 .flip-card {
   color: rgb(175, 149, 0);
@@ -119,29 +98,6 @@ input[type="radio"] {
   font-size: 20px;
   opacity: 50%;
 }
-/*menu*/
-.grandParentContaniner {
-  display: table;
-  height: 100%;
-  margin: 0 auto;
-
-}
-.parentContainer {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.parentContainer #loginForm {
-  padding: 10px;
-  background: #fff;
-  border: 1px solid #ddd;
-  width: 400px;
-
-}
-
-#loginForm:hover{
-  animation-duration: unset;
-}
 /*score*/
 
 .score {
@@ -188,46 +144,8 @@ input[type="radio"] {
   box-shadow: #D6D6E7 0 3px 7px inset;
   transform: translateY(2px);
 }
-
-/*questions */
-
-/* CSS */
-.qform {
-  background-color: #fbeee0;
-  border: 2px solid #422800;
-  border-radius: 30px;
-  box-shadow: #422800 4px 4px 0 0;
-  color: #422800;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 0 18px;
-  line-height: 50px;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.qform:hover {
-  background-color: #fff;
-}
-
-.qform:active {
-  box-shadow: #422800 2px 2px 0 0;
-  transform: translate(2px, 2px);
-}
-
-@media (min-width: 768px) {
-  .qform {
-    min-width: 120px;
-    padding: 0 25px;
-  }
-}
 /*button*/
-#btn {
+#restart {
   background-color: #EA4C89;
   border-radius: 8px;
   border-style: none;
@@ -253,16 +171,7 @@ input[type="radio"] {
   -webkit-user-select: none;
   touch-action: manipulation;
 }
-input[type=submit] {
-  background-color: #62529c;
-  border: none;
-  color: #fff;
-  padding: 15px 30px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-#btn:hover,
+#restart:hover,
 #restart:focus {
   background-color: #F082AC;
 }
@@ -306,17 +215,4 @@ input[type=submit] {
 }
 .nav-list a:hover {
   color: var(--nav-link-hover);
-}
-.navspace {
-  justify-content: space-between;
-}
-
-/* Contact button */
-.nav-btn {
-  background-color: var(--nav-btn);
-  border: none;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 10px;
-  cursor: pointer;
 }

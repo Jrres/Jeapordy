@@ -1,61 +1,163 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
+<html>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HTML 5 Boilerplate</title>
     <link rel="stylesheet" href="../style.css">
-  </head>
-  <body>
-    <?php include "card.php";
-    include "question.php";
-      $arr = $qs;//array with question and answer
-      $tr = 0;
-      $val=array();
-      //define criterias
-      $criteria= array("GSU","Tech Companies","Web Concepts","Javascript","Haloween",);
-      //add the value amounts per question to val[]
+</head>
 
-    echo "<table>";
-    for($i=1;$i<=5;$i++){
-      $cal = $i*100;
-      $val[$i]=strval("$ {$cal}");
-    }
-    //create the cards with a 5 X 5 matrix
-    //create the criteria header
-    for($i=0;$i<5;$i++){
-      echo crit($criteria[$i]);
-    }
-    
-    for($i=0;$i<25;$i++){
-      if($i%5==0){
-        echo "</tr>";
-      }
-      if($tr==$i){
-        echo "<tr>";
-        $tr+=5;
-      }
-      if($i<5){
-        echo card($val[1],$i);
-        
-      }
-      else if($i<10){
-        echo card($val[2],$i);
-      }
-      else if($i<15){
-        echo card($val[3],$i);
-      }
-      else if($i<20){
-        echo card($val[4],$i);
-      }
-      else {
-        echo card($val[5],$i);
-        
-      }
-    }
-    echo "</table>";
-    ?>  
-    
-  </body>
+<body>
+    <div class='scoreboard'>
+        <?php include "functions.php";
+
+        session_start();
+
+        if (!isset($_SESSION['user_name'])) {
+            navBar("user isn't logged in");
+        } else {
+            navBarIn($_SESSION['user_name']);
+        }
+
+        //assign the q num key and state value with Q props helper function 
+        if (!isset($_SESSION["points"])) {
+
+            $_SESSION["score"] = 0;
+
+            echo
+            "<div>
+        <div class='score'>Choose a card</div>
+        </div>";
+        } else {
+
+            $points = $_SESSION["points"];
+
+            $_SESSION["score"] += $points;
+
+            if ($points < 0)
+                echo "<div class=lostpoints>$points</div> ";
+            else
+                echo "<div class=gainedpoints>+$points</div> ";
+
+            echo "<div class='score'> Your score: <br>" . $_SESSION["score"] . "</div>";
+        }
+        if (!isset($_SESSION["Selected"])) {
+
+            $_SESSION["Selected"] = Qprops();
+
+            //create the 5 X 5 board
+
+            GetBoard($_SESSION["Selected"]);
+        } else {
+
+            GetBoard($_SESSION["Selected"]);
+        }
+        ?>
+        <div class='scoreboard'>
+
+
+
+        </div>
+        <div>
+            <form action="Jeapordy.php" method="post">
+                <button name="restart" type="submit" formaction="Jeapordy.php" formmethod="$_GET" id="btn">Restart</button>
+            </form>
+            <?php
+
+            if (!isset($_GET["restart"])) {
+
+                echo "<div class='restart'>Click restart button to reset the game</div>";
+            } else {
+
+                session_destroy();
+
+                header("Location: ./Jeapordy.php");
+            }
+
+            ?>
+        </div>
+</body>
+
 </html>
+
+<?php
+function Qprops()
+{
+
+    $arrQ = array();
+
+    $arrB = array();
+
+    for ($i = 1; $i <= 25; $i++) {
+        //when theres a space in the parameter, the url fills it in with a percentage garbage val
+        $arrQ[$i] = "question" . $i;
+
+        $arrB[$i] = 0;
+    }
+
+    $map = array_combine($arrQ, $arrB);
+
+    return $map;
+}
+function GetBoard($param)
+{
+
+    $i = 1;
+
+    $tr = 0;
+
+    $j = 0;
+
+    $criteria = array("GSU", "Tech Companies", "Web Concepts", "Javascript", "Halloween",);
+
+    echo "<div class='flip-card'>
+    <table>";
+
+    for ($k = 0; $k < 5; $k++) {
+        echo
+        "<td> $criteria[$k]</a></td>";
+    }
+
+    foreach ($param as $question => $state) {
+
+        $q = $question;
+
+        if ($j % 5 == 0 && $j != 0)
+
+            echo "</tr>";
+
+        if ($tr == $j) {
+
+            echo "<tr>";
+
+            $tr += 5;
+        }
+        if ($state != 1)
+
+            echo
+            "<td><a href='./game.php?action=$q' name='back'> question$i </a></td>";
+
+        if (isset($_GET["score"])) {
+            if ($state == 1) {
+
+                if ($_GET["score"] == "gain")
+
+                    echo
+                    "<td>RIGHT</td>";
+
+                else
+
+                    echo
+                    "<td>WRONG</td>";
+            }
+        }
+
+        $j++;
+
+        $i++;
+    }
+
+    echo "</table></div>";
+}
+?>

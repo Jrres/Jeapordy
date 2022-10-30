@@ -1,0 +1,32 @@
+GSU
+question1/What is the mascot for GSU?/Panthers/Blue Hawks/Snakes/Grizzlies
+question6/What building is right next to Waffle House?/Petit Science Building/Aderhold/Langdale/Classroom South
+question11/What is the name of GSU's football stadium?/Center Parc Stadium/Bobby Dodd Stadium/MetLife Stadium/Georgia State Stadium
+question16/As of 2022, who is the president of GSU?/Brian Blake/Lane Kiffin/George Clooney/Michael Roberts
+question21/When was GSU founded?/1913/1889/1924/1956
+TECH COMPANIES
+question2/Which company invented the iPhone?/Apple/Motorola/Google/Dell
+question7/What does the 'G' in FAANG stand for?/Google/General Motors/Goldman Sachs/GitHub
+question12/This tech company's name was originally PC's Limited./Dell/HP/Apple/AT&T
+question17/What FAANG company started out by selling books online?/Amazon/Facebook/Netflix/Amazon
+question22/What was the first android phone?/the HTC Dream/Nokia 2000/Blackberry Sidekick/Apple iPhone
+WEB CONCEPTS
+question3/the most commonly used web language?/Javascript/HTML/Python/Java
+question8/DNS servers translate domain names into?/IP Addresses/Proxies/VPNs/Websites
+question13/What does CSS stand for?/Cascading Style Sheet/Cute Style Sheets/Cover Style Sheets/Coding Style Sheets
+question18/Which HTML tag uses the biggest heading?/H1/P/H2/H5
+question23/True or False: A CSS file can be applied to only one HTML file./False/True
+Javascript
+question4/In JavaScript, this is the keyword you use to declare a function./function/Method/Constructor/Array
+question9/A variable is declared in Javascript by using?/var/Char/Noun/String
+question14/Javascript is a ___ and ____-side programming language./Server and Client/Down and Up/Python and HTML/CSS and HTML
+question19/Which of the following function of String object creates an HTML hypertext link that requests another URL?/link()/url()/findlink()/linktolink()
+question24/Which built-in method reverses the order of the elements of an array?/reverse()/backwards()/reverseorder()/switch()
+Halloween
+question5/Who is the villain in the 1978 Halloween movie?/Michael Myers/Freddy Krueger/Jason/Scream
+question10/Who creates the creature in Mary Shelley’s Frankenstein?/Victor Frankenstein/Mary Shelley/Johnny Appleseed/Elizabeth Lavenza
+question15/Count Dracula's real name?/Vlad III/Ivan The Terrible/Napoleon/Henry
+question20/What was candy corn originally called?/Chicken Feed/Sweeties/Candy Pyramids/Sweet Corn
+question25/Who wrote the “The Legend of Sleepy Hollow”?/ Who is Washington Irving/Edgar Allan Poe/Shakespeare/Odysseus
+
+
