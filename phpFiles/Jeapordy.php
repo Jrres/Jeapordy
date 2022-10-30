@@ -17,7 +17,7 @@
         if (!isset($_SESSION['user_name'])) {
             navBar("user isn't logged in");
         } else {
-            navBarIn($_SESSION['user_name']);
+            navLogOut($_SESSION['user_name']);
         }
 
         //assign the q num key and state value with Q props helper function 
@@ -27,8 +27,8 @@
 
             echo
             "<div>
-        <div class='score'>Choose a card</div>
-        </div>";
+            <div class='score'>Choose a card</div>
+            </div>";
         } else {
 
             $points = $_SESSION["points"];
@@ -53,6 +53,9 @@
 
             GetBoard($_SESSION["Selected"]);
         }
+        if(isDone($_SESSION["Selected"])==1){
+            addToLeaderboard($_SESSION["score"],$_SESSION['user_name']);
+        }
         ?>
         <div class='scoreboard'>
 
@@ -70,7 +73,9 @@
                 echo "<div class='restart'>Click restart button to reset the game</div>";
             } else {
 
-                session_destroy();
+                unset($_SESSION["Selected"]);
+                unset($_SESSION["points"]);
+                unset($_SESSION["score"]);
 
                 header("Location: ./Jeapordy.php");
             }
@@ -140,16 +145,8 @@ function GetBoard($param)
 
         if (isset($_GET["score"])) {
             if ($state == 1) {
-
-                if ($_GET["score"] == "gain")
-
                     echo
-                    "<td>RIGHT</td>";
-
-                else
-
-                    echo
-                    "<td>WRONG</td>";
+                    "<td>X</td>";
             }
         }
 
@@ -159,5 +156,13 @@ function GetBoard($param)
     }
 
     echo "</table></div>";
+}
+function isDone($Board){
+
+    foreach($Board as $q=>$state){
+        if($state==0)
+        return 0;
+    }
+    return 1;
 }
 ?>

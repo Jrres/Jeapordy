@@ -22,7 +22,7 @@ echo
     </a>
 </nav>';
 }
-function navBarIn($user){
+function navLogOut($user){
   echo 
   '<nav class="nav nav-3">
     <a class="nav-logo" href ="index.php"><img src="../imgFiles/logo.png"></img></a>
@@ -31,8 +31,7 @@ function navBarIn($user){
       <a href="./Jeapordy.php">Play</a>
       </li>
       <li>
-        <button name="">
-        <a href="./logout.php">Login</a>
+        <a href="./index.php?logOff=1">Logout</a>
       </li>
       <li>
         <a href="./registration.php">Register</a>
@@ -46,3 +45,9 @@ function navBarIn($user){
       </a>
   </nav>';
   }
+ function addtoLeaderBoard($points,$player){
+    $file  = fopen("leaderboard.txt","w");
+    $record = $player . " " . $points;
+    fwrite($file,$record);
+    fclose($file);
+ }

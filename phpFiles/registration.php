@@ -5,7 +5,7 @@ session_start();
 if (!isset($_SESSION['user_name'])) {
     navBar("user isn't logged in");
 } else {
-    navBar($_SESSION['user_name']);
+    navLogOut($_SESSION['user_name']);
 }
 
 ?>
@@ -55,4 +55,8 @@ if (!isset($_SESSION['user_name'])) {
     </div>
 </body>
 
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 19c96165144f16e78fa6aae9a66a1246cc33940c

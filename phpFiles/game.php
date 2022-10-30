@@ -23,7 +23,7 @@
     if (!isset($_SESSION['user_name'])) {
         navBar("user isn't logged in");
     } else {
-        navBar($_SESSION['user_name']);
+        navLogOut($_SESSION['user_name']);
     }
 
     $noneError = "please select an option!";
